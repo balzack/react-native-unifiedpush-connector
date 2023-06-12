@@ -1,4 +1,4 @@
-package com.connector;
+package com.unifiedpushconnector;
 
 import androidx.annotation.NonNull;
 
@@ -11,12 +11,12 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class ConnectorPackage implements ReactPackage {
+public class UnifiedpushConnectorPackage implements ReactPackage {
   @NonNull
   @Override
   public List<NativeModule> createNativeModules(@NonNull ReactApplicationContext reactContext) {
     List<NativeModule> modules = new ArrayList<>();
-    modules.add(new ConnectorModule(reactContext));
+    modules.add(new UnifiedpushConnectorModule(reactContext));
     return modules;
   }
 

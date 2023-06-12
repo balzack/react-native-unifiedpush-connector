@@ -93,9 +93,9 @@ android {
 
     compileSdkVersion rootProject.ext.compileSdkVersion
 
-    namespace "com.connectorexample"
+    namespace "com.unifiedpushconnectorexample"
     defaultConfig {
-        applicationId "com.connectorexample"
+        applicationId "com.unifiedpushconnectorexample"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "ConnectorExample.app"
-               BlueprintName = "ConnectorExample"
-               ReferencedContainer = "container:ConnectorExample.xcodeproj">
+               BuildableName = "UnifiedpushConnectorExample.app"
+               BlueprintName = "UnifiedpushConnectorExample"
+               ReferencedContainer = "container:UnifiedpushConnectorExample.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "ConnectorExampleTests.xctest"
-               BlueprintName = "ConnectorExampleTests"
-               ReferencedContainer = "container:ConnectorExample.xcodeproj">
+               BuildableName = "UnifiedpushConnectorExampleTests.xctest"
+               BlueprintName = "UnifiedpushConnectorExampleTests"
+               ReferencedContainer = "container:UnifiedpushConnectorExample.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "ConnectorExample.app"
-            BlueprintName = "ConnectorExample"
-            ReferencedContainer = "container:ConnectorExample.xcodeproj">
+            BuildableName = "UnifiedpushConnectorExample.app"
+            BlueprintName = "UnifiedpushConnectorExample"
+            ReferencedContainer = "container:UnifiedpushConnectorExample.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "ConnectorExample.app"
-            BlueprintName = "ConnectorExample"
-            ReferencedContainer = "container:ConnectorExample.xcodeproj">
+            BuildableName = "UnifiedpushConnectorExample.app"
+            BlueprintName = "UnifiedpushConnectorExample"
+            ReferencedContainer = "container:UnifiedpushConnectorExample.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

@@ -53,9 +53,9 @@ Remember to add tests for your change if possible. Run the unit tests by:
 yarn test
 ```
 
-To edit the Objective-C or Swift files, open `example/ios/ConnectorExample.xcworkspace` in XCode and find the source files at `Pods > Development Pods > react-native-connector`.
+To edit the Objective-C or Swift files, open `example/ios/UnifiedpushConnectorExample.xcworkspace` in XCode and find the source files at `Pods > Development Pods > react-native-unifiedpush-connector`.
 
-To edit the Java or Kotlin files, open `example/android` in Android studio and find the source files at `react-native-connector` under `Android`.
+To edit the Java or Kotlin files, open `example/android` in Android studio and find the source files at `react-native-unifiedpush-connector` under `Android`.
 
 
 ### Commit message convention

@@ -1,4 +1,4 @@
-package com.connector;
+package com.unifiedpushconnector;
 
 import androidx.annotation.NonNull;
 
@@ -8,11 +8,11 @@ import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.module.annotations.ReactModule;
 
-@ReactModule(name = ConnectorModule.NAME)
-public class ConnectorModule extends ReactContextBaseJavaModule {
-  public static final String NAME = "Connector";
+@ReactModule(name = UnifiedpushConnectorModule.NAME)
+public class UnifiedpushConnectorModule extends ReactContextBaseJavaModule {
+  public static final String NAME = "UnifiedpushConnector";
 
-  public ConnectorModule(ReactApplicationContext reactContext) {
+  public UnifiedpushConnectorModule(ReactApplicationContext reactContext) {
     super(reactContext);
   }
 

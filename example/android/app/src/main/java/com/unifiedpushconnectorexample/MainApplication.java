@@ -1,4 +1,4 @@
-package com.connectorexample;
+package com.unifiedpushconnectorexample;
 
 import android.app.Application;
 import com.facebook.react.PackageList;

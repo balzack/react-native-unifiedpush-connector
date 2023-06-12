@@ -1,6 +1,6 @@
 //
 //  File.swift
-//  ConnectorExample
+//  UnifiedpushConnectorExample
 //
 
 import Foundation

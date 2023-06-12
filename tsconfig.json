@@ -2,7 +2,7 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-      "react-native-connector": ["./src/index"]
+      "react-native-unifiedpush-connector": ["./src/index"]
     },
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
