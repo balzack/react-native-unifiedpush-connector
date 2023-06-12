@@ -1,6 +1,6 @@
 # react-native-unifiedpush-connector
 
-UnifiedPush library connector for react-native
+*NOT READY YET* UnifiedPush library connector for react-native
 
 ## Installation
 
@@ -11,11 +11,9 @@ npm install react-native-unifiedpush-connector
 ## Usage
 
 ```js
-import { multiply } from 'react-native-unifiedpush-connector';
 
 // ...
 
-const result = await multiply(3, 7);
 ```
 
 ## Contributing
@@ -24,7 +22,7 @@ See the [contributing guide](CONTRIBUTING.md) to learn how to contribute to the 
 
 ## License
 
-MIT
+Apache-2
 
 ---
 
