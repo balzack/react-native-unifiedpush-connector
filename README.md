@@ -1,6 +1,6 @@
 # react-native-unifiedpush-connector
 
-*NOT READY YET* UnifiedPush library connector for react-native
+UnifiedPush library connector for react-native
 
 ## Installation
 
@@ -26,7 +26,7 @@ import { initUnifiedPush } from 'react-native-unifiedpush-connector';
     }
   }, []);
 
-// ...
+...
 
   useEffect(() => {
     DeviceEventEmitter.addListener('unifiedPushURL', (e) => {
@@ -34,7 +34,7 @@ import { initUnifiedPush } from 'react-native-unifiedpush-connector';
       // pushURL = e.endpoint;
     });
 
-// ...
+...
 
 ```
 
