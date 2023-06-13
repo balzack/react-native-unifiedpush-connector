@@ -41,13 +41,13 @@
     "ios",
     "android"
   ],
-  "repository": "https://github.com/balzack/react-native-connector",
+  "repository": "https://github.com/balzack/react-native-unifiedpush-connector",
   "author": "balzack <pierre.balzack@gmail.com> (https://github.com/balzack)",
-  "license": "MIT",
+  "license": "Apache-2",
   "bugs": {
-    "url": "https://github.com/balzack/react-native-connector/issues"
+    "url": "https://github.com/balzack/react-native-unifiedpush-connector/issues"
   },
-  "homepage": "https://github.com/balzack/react-native-connector#readme",
+  "homepage": "https://github.com/balzack/react-native-unifiedpush-connector#readme",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },

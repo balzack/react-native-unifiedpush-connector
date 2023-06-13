@@ -12,6 +12,28 @@ npm install react-native-unifiedpush-connector
 
 ```js
 
+import { Platform, PermissionsAndroid } from 'react-native';
+import { initUnifiedPush } from 'react-native-unifiedpush-connector';
+
+...
+
+  React.useEffect(() => {
+    if (Platform.OS !== 'ios') {
+      PermissionsAndroid.request(
+        PermissionsAndroid.PERMISSIONS.POST_NOTIFICATIONS
+      );
+      initUnifiedPush()
+    }
+  }, []);
+
+// ...
+
+  useEffect(() => {
+    DeviceEventEmitter.addListener('unifiedPushURL', (e) => {
+      // register push url
+      // pushURL = e.endpoint;
+    });
+
 // ...
 
 ```
