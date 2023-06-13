@@ -1,4 +1,4 @@
-package com.databag;
+package com.unifiedpushconnector;
 
 import android.content.Context;
 import org.jetbrains.annotations.NotNull;
@@ -10,6 +10,7 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Intent;
 
+import androidx.core.graphics.drawable.IconCompat;
 import android.app.ActivityManager.RunningAppProcessInfo;
 import android.app.ActivityManager;
 import android.os.Build;
@@ -86,7 +87,7 @@ public class CustomReceiver extends MessagingReceiver {
         Uri defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(context,
                                                                                         channelId)
-        .setSmallIcon(0)
+        .setSmallIcon(IconCompat.createWithData(new byte[0], 0, 0))
         .setContentTitle(strMessage).setAutoCancel(true).setSound(
                 defaultSoundUri).setContentIntent(pendingIntent);
 
