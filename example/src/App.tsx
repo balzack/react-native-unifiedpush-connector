@@ -8,7 +8,7 @@ export default function App() {
 
   React.useEffect(() => {
     initUnifiedPush().then(() => {
-      console.log('INIT!');
+      console.log('UnifiedPush Initialized');
     });
 
     multiply(3, 7).then(setResult);

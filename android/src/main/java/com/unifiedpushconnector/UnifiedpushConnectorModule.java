@@ -9,6 +9,7 @@ import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.module.annotations.ReactModule;
 
 import java.util.ArrayList;
+import java.lang.Thread;
 
 import android.app.Activity;
 import android.content.Context;
@@ -43,8 +44,19 @@ public class UnifiedpushConnectorModule extends ReactContextBaseJavaModule {
 
   @ReactMethod
   public void initUnifiedPush(Promise promise) {
+    Activity activityContext = null;
 
-    Activity activityContext = getCurrentActivity();
+    // activity takes longer than js engine to be set
+    try {
+      while (activityContext == null) {
+        activityContext = getCurrentActivity();
+        Thread.sleep(100);
+      }
+    }
+    catch(Exception e) {
+      promise.reject(e.toString());
+      return;
+    }
 
     activityContext.getSharedPreferences("unifiedpush.connector", Context.MODE_PRIVATE).edit().putBoolean("unifiedpush.no_distrib_dialog", true).apply();
 
