@@ -55,6 +55,8 @@ public class UnifiedpushConnectorModule extends ReactContextBaseJavaModule {
         new ArrayList<String>(),
         packageName
     );
+
+    promise.resolve(null);
   }
 
 }
