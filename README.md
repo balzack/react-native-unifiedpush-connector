@@ -12,6 +12,8 @@ npm install react-native-unifiedpush-connector
 
 ```js
 
+// Javascript App
+
 import { Platform, PermissionsAndroid } from 'react-native';
 import { initUnifiedPush } from 'react-native-unifiedpush-connector';
 
@@ -34,7 +36,27 @@ import { initUnifiedPush } from 'react-native-unifiedpush-connector';
       // pushURL = e.endpoint;
     });
 
+
+// AndroidManifest
+
 ...
+
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
+...
+
+        <receiver
+            android:enabled="true"
+            android:name="com.unifiedpushconnector.CustomReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="org.unifiedpush.android.connector.MESSAGE"/>
+                <action android:name="org.unifiedpush.android.connector.UNREGISTERED"/>
+                <action android:name="org.unifiedpush.android.connector.NEW_ENDPOINT"/>
+                <action android:name="org.unifiedpush.android.connector.REGISTRATION_FAILED"/>
+                <action android:name="org.unifiedpush.android.connector.REGISTRATION_REFUSED"/>
+            </intent-filter>
+        </receiver>
 
 ```
 
