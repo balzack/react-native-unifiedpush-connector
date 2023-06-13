@@ -1,7 +1,7 @@
 {
   "name": "react-native-unifiedpush-connector",
-  "version": "0.1.2",
-  "description": "*not ready yet* UnifiedPush library for react-native",
+  "version": "0.1.5",
+  "description": "UnifiedPush connector library for react-native",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
   "types": "lib/typescript/index.d.ts",
