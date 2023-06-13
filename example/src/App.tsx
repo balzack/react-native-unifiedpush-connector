@@ -1,17 +1,19 @@
 import * as React from 'react';
 
 import { StyleSheet, View, Text } from 'react-native';
-import { multiply, initUnifiedPush } from 'react-native-unifiedpush-connector';
+import { initUnifiedPush } from 'react-native-unifiedpush-connector';
 
 export default function App() {
-  const [result, setResult] = React.useState<number | undefined>();
+  const [result, setResult] = React.useState<string | undefined>();
 
   React.useEffect(() => {
-    initUnifiedPush().then(() => {
-      console.log('UnifiedPush Initialized');
-    });
-
-    multiply(3, 7).then(setResult);
+    initUnifiedPush()
+      .then(() => {
+        setResult('Initialized!');
+      })
+      .catch((e) => {
+        setResult(e.toString());
+      });
   }, []);
 
   return (

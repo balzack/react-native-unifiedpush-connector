@@ -17,9 +17,6 @@ const UnifiedpushConnector = NativeModules.UnifiedpushConnector
       }
     );
 
-export function initUnifiedPush(): Promise<boolean> {
+export function initUnifiedPush(): Promise<string> {
   return UnifiedpushConnector.initUnifiedPush();
-}
-export function multiply(a: number, b: number): Promise<number> {
-  return UnifiedpushConnector.multiply(a, b);
 }

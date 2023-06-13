@@ -19,6 +19,8 @@ import org.unifiedpush.android.connector.RegistrationDialogContent;
 @ReactModule(name = UnifiedpushConnectorModule.NAME)
 public class UnifiedpushConnectorModule extends ReactContextBaseJavaModule {
   public static final String NAME = "UnifiedpushConnector";
+  private static final Integer DELAY_COUNT = 5;
+  private static final Integer DELAY = 100;
   private String packageName;
   
   public UnifiedpushConnectorModule(ReactApplicationContext reactContext) {
@@ -33,42 +35,40 @@ public class UnifiedpushConnectorModule extends ReactContextBaseJavaModule {
     return NAME;
   }
 
-
-  // Example method
-  // See https://reactnative.dev/docs/native-modules-android
-  @ReactMethod
-  public void multiply(double a, double b, Promise promise) {
-    promise.resolve(a * b);
-  }
-
-
-  @ReactMethod
-  public void initUnifiedPush(Promise promise) {
-    Activity activityContext = null;
-
-    // activity takes longer than js engine to be set
+  private Activity getActivity() {
     try {
-      while (activityContext == null) {
-        activityContext = getCurrentActivity();
-        Thread.sleep(100);
+      // activity takes longer than js engine to be set
+      for (Integer i = 0; i < DELAY_COUNT; i++) {
+        Activity activity = getCurrentActivity();
+        if (activity != null) {
+          return activity;
+        }
+        Thread.sleep(DELAY);
       }
     }
     catch(Exception e) {
-      promise.reject(e.toString());
+      System.out.println(e.toString());
+    }
+    return null;
+  }
+
+  @ReactMethod
+  public void initUnifiedPush(Promise promise) {
+    Activity activity = getActivity();
+    if (activity == null) {
+      promise.reject("could not obtain activity");
       return;
     }
 
-    activityContext.getSharedPreferences("unifiedpush.connector", Context.MODE_PRIVATE).edit().putBoolean("unifiedpush.no_distrib_dialog", true).apply();
+    activity.getSharedPreferences("unifiedpush.connector", Context.MODE_PRIVATE).edit().putBoolean("unifiedpush.no_distrib_dialog", true).apply();
 
     UnifiedPush.registerAppWithDialog(
-        activityContext,
+        activity,
         "default",
         new RegistrationDialogContent(),
         new ArrayList<String>(),
         packageName
     );
-
     promise.resolve(null);
   }
-
 }
