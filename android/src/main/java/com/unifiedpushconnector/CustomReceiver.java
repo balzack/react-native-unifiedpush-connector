@@ -51,11 +51,17 @@ public class CustomReceiver extends MessagingReceiver {
     WritableMap params = Arguments.createMap();
     params.putString("instance", instance);
     params.putString("endpoint", endpoint);
-    reactContext
-        .getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
-        .emit("unifiedPushURL", params);
 
-        // Called when a new endpoint be used for sending push messages
+    if(reactContext != null) {
+      reactContext.getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class).emit("unifiedPushURL", params);
+    } else {
+      reactInstanceManager.addReactInstanceEventListener(new ReactInstanceManager.ReactInstanceEventListener() {
+        @Override
+        public void onReactContextInitialized(ReactContext context) {
+          context.getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class).emit("unifiedPushURL", params);
+          reactInstanceManager.removeReactInstanceEventListener(this);
+        }
+      });
     }
 
     @Override
