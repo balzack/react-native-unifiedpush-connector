@@ -48,14 +48,21 @@ public class CustomReceiver extends MessagingReceiver {
                     .getReactInstanceManager();
             ReactContext reactContext = reactInstanceManager.getCurrentReactContext();
 
-    WritableMap params = Arguments.createMap();
-    params.putString("instance", instance);
-    params.putString("endpoint", endpoint);
-    reactContext
-        .getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
-        .emit("unifiedPushURL", params);
+      WritableMap params = Arguments.createMap();
+      params.putString("instance", instance);
+      params.putString("endpoint", endpoint);
 
-        // Called when a new endpoint be used for sending push messages
+      if(reactContext != null) {
+        reactContext.getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class).emit("unifiedPushURL", params);
+      } else {
+        reactInstanceManager.addReactInstanceEventListener(new ReactInstanceManager.ReactInstanceEventListener() {
+          @Override
+          public void onReactContextInitialized(ReactContext context) {
+            context.getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class).emit("unifiedPushURL", params);
+            reactInstanceManager.removeReactInstanceEventListener(this);
+          }
+        });
+      }
     }
 
     @Override
