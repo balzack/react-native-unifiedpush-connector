@@ -39,29 +39,20 @@ public class CustomReceiver extends MessagingReceiver {
       return (appProcessInfo.importance == RunningAppProcessInfo.IMPORTANCE_FOREGROUND || appProcessInfo.importance == RunningAppProcessInfo.IMPORTANCE_VISIBLE);
     }
 
+
     @Override
     public void onNewEndpoint(@NotNull Context context, @NotNull String endpoint, @NotNull String instance) {
-
-      final ReactInstanceManager reactInstanceManager =
-                ((ReactApplication) context.getApplicationContext())
-                    .getReactNativeHost()
-                    .getReactInstanceManager();
-            ReactContext reactContext = reactInstanceManager.getCurrentReactContext();
 
       WritableMap params = Arguments.createMap();
       params.putString("instance", instance);
       params.putString("endpoint", endpoint);
 
+      ReactContext reactContext = ((ReactApplication) context.getApplicationContext()).getReactHost().getCurrentReactContext();
+
       if(reactContext != null) {
         reactContext.getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class).emit("unifiedPushURL", params);
       } else {
-        reactInstanceManager.addReactInstanceEventListener(new ReactInstanceManager.ReactInstanceEventListener() {
-          @Override
-          public void onReactContextInitialized(ReactContext context) {
-            context.getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class).emit("unifiedPushURL", params);
-            reactInstanceManager.removeReactInstanceEventListener(this);
-          }
-        });
+        System.out.println("Error: ReactContext is NULL");
       }
     }
 
